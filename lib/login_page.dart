@@ -1,3 +1,4 @@
+import 'package:belajarflutter11pplg2/components/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,17 +29,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Container(
             margin: EdgeInsets.all(10),
-            child: TextField(
-              controller: txtUsername,
-              decoration: InputDecoration(hint: Text("input username")),
+            child: CustomTextfield(
+              myHint: "input username",
+              txtController: txtUsername,
             ),
           ),
           Container(
             margin: EdgeInsets.all(10),
-            child: TextField(
-              controller: txtPassword,
-              obscureText: true,
-              decoration: InputDecoration(hint: Text("input password")),
+            child: CustomTextfield(
+              myHint: "input password",
+              txtController: txtPassword,
             ),
           ),
 
