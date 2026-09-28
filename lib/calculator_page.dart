@@ -1,15 +1,44 @@
+import 'package:belajarflutter11pplg2/components/custom_textfield.dart';
+import 'package:belajarflutter11pplg2/controllers/kalkulator_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({super.key});
+class CalculatorPage extends StatelessWidget {
+  CalculatorPage({super.key});
 
-  @override
-  State<CalculatorPage> createState() => _CalculatorPageState();
-}
+  final controller = Get.put(KalkulatorController());
+  // menyambingkan page dan controller
 
-class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    TextEditingController txtangka1 = TextEditingController();
+    TextEditingController txtangka2 = TextEditingController();
+
+    return Scaffold(
+      appBar: AppBar(title: Text("my kalkulator")),
+      body: Column(
+        children: [
+          CustomTextfield(myHint: "input angka 1", txtController: txtangka1),
+          CustomTextfield(myHint: "input angka 2", txtController: txtangka2),
+          ElevatedButton(
+            onPressed: () {
+              // no logic here
+              controller.tambah(
+                double.parse(txtangka1.text),
+                double.parse(txtangka2.text),
+              );
+            },
+            child: Text("tambah"),
+          ),
+
+          Obx(
+            () => Text(
+              "hasil " + controller.hasilHitung.value.toString(),
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
