@@ -6,5 +6,7 @@ class KalkulatorController extends GetxController {
   void tambah(double angka1, double angka2) {
     double hasiltambah = angka1 + angka2;
     hasilHitung.value = hasiltambah;
+    // snackbar
+    Get.snackbar("hasil tambah", "hasil nya " + hasiltambah.toString());
   }
 }
