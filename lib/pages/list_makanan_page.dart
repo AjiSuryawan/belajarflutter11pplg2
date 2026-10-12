@@ -17,10 +17,18 @@ class ListMakananPage extends StatelessWidget {
           itemCount: controller.dataMakanan.length,
           itemBuilder: (context, index) {
             final makanan = controller.dataMakanan[index];
-            return ListTile(
-              title: Text(makanan.namaMakanan, style: TextStyle(fontSize: 20)),
-              subtitle: Text(makanan.harga, style: TextStyle(fontSize: 15)),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+            return InkWell(
+              onTap: () {
+                // kalau di klik pindah ke detail list makanan
+              },
+              child: ListTile(
+                title: Text(
+                  makanan.namaMakanan,
+                  style: TextStyle(fontSize: 20),
+                ),
+                subtitle: Text(makanan.harga, style: TextStyle(fontSize: 15)),
+                trailing: Icon(Icons.arrow_forward_ios_rounded),
+              ),
             );
           },
         ),
